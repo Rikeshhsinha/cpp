@@ -28,6 +28,7 @@ int main()
         if (marks[i] == target)
         {
             target_index = i;
+            break;
         }
     }
     if (target_index != -1)
