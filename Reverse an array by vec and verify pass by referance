@@ -1,0 +1,64 @@
+#include <iostream>
+#include <climits>
+#include <vector>
+using namespace std;
+
+void reverse_num(vector<int> &marks, int n)
+{
+
+    int start = 0;
+    int end = n - 1;
+    while (start < end)
+    {
+
+        swap(marks[start], marks[end]);
+        start++;
+        end--;
+    }
+
+    cout << "In function :";
+
+    for (int val : marks)
+    {
+
+        cout << val;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int n;
+
+    cout << "Enter the number of elements :";
+    cin >> n;
+
+    vector<int> marks;
+
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+
+        cin >> x;
+
+        marks.push_back(x);
+    }
+
+    cout << "The old value: ";
+    for (int val : marks)
+    {
+
+        cout << val;
+    }
+    cout << endl;
+    reverse_num(marks, n);
+
+    cout << "In main function :";
+    for (int val : marks)
+    {
+
+        cout << val;
+    }
+
+    return 0;
+}
