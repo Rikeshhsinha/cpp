@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+int main()
+{
+
+    int n, target;
+
+    cout << "Enter the number of item want to store :";
+    cin >> n;
+
+    cout << "Enter the target value :";
+    cin >> target;
+
+    vector<int> num;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        int x;
+
+        cin >> x;
+
+        num.push_back(x);
+    }
+
+    int i = 0;
+    int j = n - 1;
+
+    while (i < j)
+    {
+
+        int pairSum = num[i] + num[j];
+
+        if (pairSum < target)
+        {
+
+            i++;
+        }
+        else if (pairSum > target)
+        {
+
+            j--;
+        }
+
+        else
+        {
+            cout << "Indexes at Pair found: " << i << " and " << j;
+            return 0;
+        }
+    }
+
+    cout << "NO PAIR FOUND !!";
+
+    return 0;
+}
