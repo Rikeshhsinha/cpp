@@ -1,0 +1,73 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int findTarget(int n, vector<int> nums, int target)
+{
+
+    int st = 0;
+    int end = n - 1;
+
+    while (st <= end)
+    {
+
+        int mid = (st + end) / 2;
+
+        if (target == nums[mid])
+        {
+
+            return mid;
+        }
+        else if (target > nums[mid])
+        {
+            st = mid + 1;
+        }
+        else
+        {
+
+            end = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+
+    int n;
+    int target;
+
+    cout << "Enter the number of value store:";
+    cin >> n;
+
+    cout << "Enter the target value:";
+    cin >> target;
+
+    vector<int> nums;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        int x;
+
+        cout << "Enter the value of index :" << i << " " << endl;
+        cin >> x;
+        nums.push_back(x);
+    }
+
+    int result = findTarget(n, nums, target);
+
+    if (result != -1)
+    {
+
+        cout << "The value is on index :" << result << endl;
+    }
+    else
+    {
+        cout << "Target not found";
+    }
+
+    return 0;
+}
