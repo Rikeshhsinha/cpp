@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void reverseArray(vector<int> &nums, int s, int e)
+{
+
+    if (s >= e)
+    {
+        return;
+    }
+
+    swap(nums[s], nums[e]);
+
+    reverseArray(nums, s + 1, e - 1);
+}
+
+int main()
+{
+
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+
+    vector<int> nums;
+
+    int s = 0;
+    int e = n - 1;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        int x;
+
+        cout << "enter your index " << i << "number";
+        cin >> x;
+
+        nums.push_back(x);
+    }
+    reverseArray(nums, s, e);
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+
+        cout << "The array is :" << nums[i] << endl;
+    }
+
+    return 0;
+}
